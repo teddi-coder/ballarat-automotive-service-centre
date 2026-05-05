@@ -3,784 +3,378 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The #1 Mechanic in Ballarat | Ballarat Automotive Service Centre</title>
-  <meta name="description" content="Looking for a mechanic in Ballarat you can trust? Trusted servicing, repairs, logbook and roadworthy all in one place.">
-
+  <title>Ballarat Automotive Service Centre | Ballarat's Trusted Mechanic</title>
+  <meta name="description" content="Ballarat's trusted automotive servicing and repair centre. Expert light vehicle servicing, logbook maintenance, mechanical repairs and diagnostics for all major brands.">
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KZ6LQ59X');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQWXBD7X');</script>
   <!-- End Google Tag Manager -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --brc-green: #45955E;
-      --brc-green-hover: #18191B;
-      --brc-dark: #18191B;
-      --brc-body: #2F3134;
-      --brc-muted: #A0A6A9;
-      --brc-light: #F2F2F3;
-      --brc-white: #FFFFFF;
-      --font-main: 'Poppins', sans-serif;
+    :root{--brc-green:#45955E;--brc-green-hover:#18191B;--brc-dark:#18191B;--brc-body:#2F3134;--brc-muted:#A0A6A9;--brc-light:#F2F2F3;--brc-white:#FFFFFF;--font-main:'Poppins',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-main);font-size:18px;font-weight:400;line-height:1.8;letter-spacing:-.5px;color:var(--brc-body);background:var(--brc-white)}
+    a{color:var(--brc-green);font-weight:500;text-decoration:none}
+    a:hover{text-decoration:underline}
+    h1{color:var(--brc-white);font-weight:600;font-size:clamp(39px,5vw,58px);line-height:1.2;letter-spacing:-1.8px}
+    h2{color:var(--brc-dark);font-weight:600;font-size:clamp(28px,4vw,45px);line-height:1.2;letter-spacing:-1.8px}
+    h3{color:var(--brc-dark);font-weight:600;font-size:24px;line-height:1.2;letter-spacing:-1.3px}
+    .btn{display:inline-block;background:var(--brc-green);color:var(--brc-white);font-family:var(--font-main);font-size:18px;font-weight:600;padding:16px 32px;border:none;border-radius:0;cursor:pointer;text-decoration:none;transition:background .2s;letter-spacing:-.3px}
+    .btn:hover{background:var(--brc-green-hover);text-decoration:none}
+    .btn-secondary{background:transparent;border:2px solid var(--brc-white);color:var(--brc-white)}
+    .btn-secondary:hover{background:var(--brc-white);color:var(--brc-dark)}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    section{padding:80px 0}
+    .site-header{position:sticky;top:0;z-index:100;background:var(--brc-white);border-bottom:1px solid #E8E9EA;padding:16px 0}
+    .header-inner{display:flex;align-items:center;justify-content:space-between}
+    .header-logo img{height:52px;width:auto}
+    .header-contact{display:flex;align-items:center;gap:24px}
+    .header-contact a{color:var(--brc-dark);font-weight:600;font-size:16px}
+    .header-contact .sms-link{background:var(--brc-green);color:var(--brc-white);padding:10px 20px;font-size:15px}
+    .header-contact .sms-link:hover{background:var(--brc-green-hover);text-decoration:none}
+    .hero{background:var(--brc-dark);padding:80px 0}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .hero-left{display:flex;flex-direction:column;gap:24px}
+    .hero-subheading{color:var(--brc-green);font-size:20px;font-weight:600;letter-spacing:-.5px}
+    .hero-body{color:#C8CBCD;font-size:17px;line-height:1.7}
+    .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+    .hero-form{background:var(--brc-white);padding:36px}
+    .hero-form h3{margin-bottom:20px;font-size:20px}
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-size:13px;font-weight:600;color:var(--brc-body);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;font-family:var(--font-main);font-size:16px;color:var(--brc-body);background:var(--brc-white);border:1.5px solid #D4D6D8;border-radius:0;outline:none;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--brc-green)}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-group-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-submit{width:100%;margin-top:8px;font-size:17px;padding:16px}
+    .accreditation{background:var(--brc-white);padding:56px 0}
+    .accreditation-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+    .accreditation-combined img{max-height:80px;width:auto;object-fit:contain}
+    .accreditation-bea img{max-height:100px;width:auto;object-fit:contain}
+    .about{background:var(--brc-light)}
+    .about h2{margin-bottom:24px}
+    .about p{font-size:17px;line-height:1.8}
+    .services{background:var(--brc-white)}
+    .services>div>h2{margin-bottom:48px}
+    .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+    .service-card{display:flex;flex-direction:column;gap:16px}
+    .service-card h3{font-size:clamp(22px,2.5vw,28px);letter-spacing:-1px}
+    .service-card p{font-size:17px;line-height:1.7;color:var(--brc-body)}
+    .reviews{background:var(--brc-light)}
+    .reviews h2{margin-bottom:40px}
+    .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .review-card{background:var(--brc-white);padding:32px;display:flex;flex-direction:column;gap:12px}
+    .review-stars{color:#E6A817;font-size:20px;letter-spacing:2px}
+    .review-text{font-size:16px;line-height:1.7;color:var(--brc-body)}
+    .review-author{font-size:15px;font-weight:600;color:var(--brc-dark)}
+    .brands{background:var(--brc-white)}
+    .brands h2{text-align:center;margin-bottom:40px}
+    .brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center;justify-items:center;margin-bottom:24px}
+    .brands-grid img{height:48px;width:auto;object-fit:contain;filter:grayscale(30%);transition:filter .2s}
+    .brands-grid img:hover{filter:grayscale(0%)}
+    .brands-more{text-align:center;font-size:16px;color:var(--brc-muted);font-weight:500;letter-spacing:-.3px}
+    .how-it-works{background:var(--brc-light)}
+    .how-it-works h2{text-align:center;margin-bottom:48px}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px}
+    .step{display:flex;flex-direction:column;gap:12px}
+    .step-number{font-size:64px;font-weight:600;color:var(--brc-green);line-height:1;letter-spacing:-3px}
+    .step h3{font-size:20px}
+    .step p{font-size:16px;color:var(--brc-body);line-height:1.6}
+    .how-it-works-cta{text-align:center}
+    .location{background:var(--brc-white)}
+    .location h2{margin-bottom:8px}
+    .location-hours{font-size:16px;color:var(--brc-muted);margin-bottom:32px}
+    .location iframe{width:100%;height:420px;border:none;display:block}
+    .cta-form{background:var(--brc-dark);padding:80px 0}
+    .cta-form-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .cta-form-left{display:flex;flex-direction:column;gap:20px}
+    .cta-form-left h2{color:var(--brc-white)}
+    .cta-form-left p{color:#C8CBCD;font-size:17px}
+    .trust-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .trust-list li{color:var(--brc-white);font-size:16px;display:flex;align-items:center;gap:10px}
+    .trust-list li::before{content:"✓";color:var(--brc-green);font-weight:700;font-size:18px;flex-shrink:0}
+    .cta-form-right .hero-form{background:var(--brc-white)}
+    .faqs{background:var(--brc-light)}
+    .faqs h2{margin-bottom:40px}
+    .faq-list{display:flex;flex-direction:column;gap:0}
+    .faq-item{border-bottom:1px solid #D4D6D8;padding:24px 0}
+    .faq-item:first-child{border-top:1px solid #D4D6D8}
+    .faq-q{font-size:18px;font-weight:600;color:var(--brc-dark);letter-spacing:-.5px;margin-bottom:10px}
+    .faq-a{font-size:16px;color:var(--brc-body);line-height:1.7}
+    .site-footer{background:var(--brc-dark);padding:64px 0 32px;color:var(--brc-white)}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-brand{display:flex;flex-direction:column;gap:16px}
+    .footer-brand img{height:48px;width:auto}
+    .footer-brand p{color:#C8CBCD;font-size:15px;line-height:1.7}
+    .footer-socials{display:flex;gap:16px}
+    .footer-socials a{color:var(--brc-muted);font-size:14px;font-weight:500;transition:color .2s}
+    .footer-socials a:hover{color:var(--brc-white);text-decoration:none}
+    .footer-col h4{color:var(--brc-white);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-col ul li a{color:var(--brc-muted);font-size:14px;font-weight:400;transition:color .2s}
+    .footer-col ul li a:hover{color:var(--brc-white);text-decoration:none}
+    .footer-col ul li{color:var(--brc-muted);font-size:14px}
+    .footer-bottom{border-top:1px solid #2F3134;padding-top:24px;color:var(--brc-muted);font-size:13px}
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;gap:40px}
+      .services-grid{grid-template-columns:1fr;gap:32px}
+      .reviews-grid{grid-template-columns:1fr;gap:24px}
+      .brands-grid{grid-template-columns:repeat(3,1fr)}
+      .steps-grid{grid-template-columns:1fr;gap:24px}
+      .cta-form-inner{grid-template-columns:1fr;gap:40px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .accreditation-inner{gap:32px}
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-main);
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.8;
-      letter-spacing: -0.5px;
-      color: var(--brc-body);
-      background: var(--brc-white);
-    }
-
-    a { color: var(--brc-green); font-weight: 500; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    h1 {
-      color: var(--brc-white);
-      font-weight: 600;
-      font-size: clamp(39px, 5vw, 58px);
-      line-height: 1.2;
-      letter-spacing: -1.8px;
-    }
-
-    h2 {
-      color: var(--brc-dark);
-      font-weight: 600;
-      font-size: clamp(28px, 4vw, 45px);
-      line-height: 1.2;
-      letter-spacing: -1.8px;
-    }
-
-    h3 {
-      color: var(--brc-dark);
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 1.2;
-      letter-spacing: -1.3px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--brc-green);
-      color: var(--brc-white);
-      font-family: var(--font-main);
-      font-size: 18px;
-      font-weight: 600;
-      padding: 16px 32px;
-      border: none;
-      border-radius: 0;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-      letter-spacing: -0.3px;
-    }
-
-    .btn:hover { background: var(--brc-green-hover); text-decoration: none; }
-
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid var(--brc-white);
-      color: var(--brc-white);
-    }
-
-    .btn-secondary:hover { background: var(--brc-white); color: var(--brc-dark); }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    section { padding: 80px 0; }
-
-    /* ── SECTION 1: Header ── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--brc-white);
-      border-bottom: 1px solid #E8E9EA;
-      padding: 16px 0;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .header-logo img { height: 52px; width: auto; }
-
-    .header-contact {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .header-contact a {
-      color: var(--brc-dark);
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .header-contact .sms-link {
-      background: var(--brc-green);
-      color: var(--brc-white);
-      padding: 10px 20px;
-      font-size: 15px;
-    }
-
-    .header-contact .sms-link:hover {
-      background: var(--brc-green-hover);
-      text-decoration: none;
-    }
-
-    /* ── SECTION 2: Hero ── */
-    .hero {
-      background: var(--brc-dark);
-      padding: 80px 0;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    .hero-left { display: flex; flex-direction: column; gap: 24px; }
-
-    .hero-subheading {
-      color: var(--brc-green);
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-    }
-
-    .hero-body { color: #C8CBCD; font-size: 17px; line-height: 1.7; }
-
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    /* Hero form */
-    .hero-form {
-      background: var(--brc-white);
-      padding: 36px;
-    }
-
-    .hero-form h3 {
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-
-    .form-group { margin-bottom: 16px; }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--brc-body);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      font-family: var(--font-main);
-      font-size: 16px;
-      color: var(--brc-body);
-      background: var(--brc-white);
-      border: 1.5px solid #D4D6D8;
-      border-radius: 0;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--brc-green); }
-
-    .form-group textarea { resize: vertical; min-height: 90px; }
-
-    .form-group-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .form-submit { width: 100%; margin-top: 8px; font-size: 17px; padding: 16px; }
-
-    /* ── SECTION 3: Accreditation logos ── */
-    .accreditation { background: var(--brc-white); padding: 48px 0; }
-
-    .accreditation-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 32px 48px;
-    }
-
-    .accreditation-logos img { height: 60px; width: auto; object-fit: contain; filter: grayscale(20%); }
-
-    /* ── SECTION 4: About ── */
-    .about { background: var(--brc-white); }
-
-    .about-inner { max-width: 820px; }
-
-    .about h2 { margin-bottom: 24px; }
-
-    .about p { margin-bottom: 20px; }
-
-    /* ── SECTION 5: Vehicle grid ── */
-    .vehicles { background: var(--brc-light); }
-
-    .vehicles h2 { text-align: center; margin-bottom: 48px; }
-
-    .vehicle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .vehicle-card { background: var(--brc-white); overflow: hidden; }
-
-    .vehicle-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
-
-    .vehicle-card-body { padding: 20px; }
-
-    .vehicle-card h3 { margin-bottom: 10px; font-size: 20px; }
-
-    .vehicle-card p { font-size: 16px; color: var(--brc-body); line-height: 1.6; }
-
-    .vehicles-cta { text-align: center; }
-
-    /* ── SECTION 6: Stats bar ── */
-    .stats-bar {
-      background: var(--brc-dark);
-      padding: 64px 0;
-    }
-
-    .stats-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .stats-left { display: flex; flex-direction: column; gap: 16px; }
-
-    .stats-left img.stars { height: 32px; width: auto; }
-
-    .stats-main {
-      color: var(--brc-white);
-      font-size: clamp(24px, 3vw, 34px);
-      font-weight: 600;
-      letter-spacing: -1px;
-      line-height: 1.2;
-    }
-
-    .stats-sub { color: var(--brc-muted); font-size: 16px; }
-
-    .stats-right img { max-width: 100%; }
-
-    /* ── SECTION 7: How it works ── */
-    .how-it-works { background: var(--brc-white); }
-
-    .how-it-works h2 { text-align: center; margin-bottom: 48px; }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-
-    .step { display: flex; flex-direction: column; gap: 12px; }
-
-    .step-number {
-      font-size: 64px;
-      font-weight: 600;
-      color: var(--brc-green);
-      line-height: 1;
-      letter-spacing: -3px;
-    }
-
-    .step h3 { font-size: 20px; }
-
-    .step p { font-size: 16px; color: var(--brc-body); line-height: 1.6; }
-
-    .how-it-works-cta { text-align: center; }
-
-    /* ── SECTION 8: Map + hours ── */
-    .location { background: var(--brc-light); }
-
-    .location h2 { margin-bottom: 32px; }
-
-    .location iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      display: block;
-    }
-
-    /* ── SECTION 10: Second form + CTA ── */
-    .cta-form {
-      background: var(--brc-dark);
-      padding: 80px 0;
-    }
-
-    .cta-form-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    .cta-form-left { display: flex; flex-direction: column; gap: 20px; }
-
-    .cta-form-left h2 { color: var(--brc-white); }
-
-    .cta-form-left p { color: #C8CBCD; font-size: 17px; }
-
-    .trust-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-    .trust-list li {
-      color: var(--brc-white);
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .trust-list li::before {
-      content: "✓";
-      color: var(--brc-green);
-      font-weight: 700;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .cta-form-right .hero-form { background: var(--brc-white); }
-
-    /* ── SECTION 12: FAQs ── */
-    .faqs { background: var(--brc-light); }
-
-    .faqs h2 { margin-bottom: 40px; }
-
-    .faq-list { display: flex; flex-direction: column; gap: 0; }
-
-    .faq-item {
-      border-bottom: 1px solid #D4D6D8;
-      padding: 24px 0;
-    }
-
-    .faq-item:first-child { border-top: 1px solid #D4D6D8; }
-
-    .faq-q {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--brc-dark);
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-    }
-
-    .faq-a { font-size: 16px; color: var(--brc-body); line-height: 1.7; }
-
-    /* ── SECTION 13: Footer ── */
-    .site-footer {
-      background: var(--brc-dark);
-      padding: 64px 0 32px;
-      color: var(--brc-white);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand { display: flex; flex-direction: column; gap: 16px; }
-
-    .footer-brand img { height: 48px; width: auto; }
-
-    .footer-brand p { color: #C8CBCD; font-size: 15px; line-height: 1.7; }
-
-    .footer-socials { display: flex; gap: 16px; }
-
-    .footer-socials a {
-      color: var(--brc-muted);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .footer-socials a:hover { color: var(--brc-white); text-decoration: none; }
-
-    .footer-col h4 {
-      color: var(--brc-white);
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-
-    .footer-col ul li a {
-      color: var(--brc-muted);
-      font-size: 14px;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-
-    .footer-col ul li a:hover { color: var(--brc-white); text-decoration: none; }
-
-    .footer-bottom {
-      border-top: 1px solid #2F3134;
-      padding-top: 24px;
-      color: var(--brc-muted);
-      font-size: 13px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .vehicle-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps-grid { grid-template-columns: 1fr; gap: 24px; }
-      .stats-inner { grid-template-columns: 1fr; }
-      .cta-form-inner { grid-template-columns: 1fr; gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      section { padding: 56px 0; }
-      .vehicle-grid { grid-template-columns: 1fr; }
-      .form-group-row { grid-template-columns: 1fr; }
-      .hero-ctas { flex-direction: column; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .header-contact .sms-link { display: none; }
+    @media(max-width:600px){
+      section{padding:56px 0}
+      .form-group-row{grid-template-columns:1fr}
+      .hero-ctas{flex-direction:column}
+      .footer-grid{grid-template-columns:1fr}
+      .header-contact .sms-link{display:none}
+      .brands-grid{grid-template-columns:repeat(3,1fr)}
     }
   </style>
 </head>
 <body>
-
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZ6LQ59X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQWXBD7X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ── SECTION 1: Header ── -->
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-      <a href="/" class="header-logo">
-        <img src="https://service.ballaratservicecentre.com/wp-content/uploads/2025/07/basc-logo-1.svg" alt="Ballarat Automotive Service Centre" width="180" height="52">
-      </a>
+      <a href="/" class="header-logo"><img src="https://ballaratservicecentre.com/resources/logo.svg" alt="Ballarat Automotive Service Centre" width="180" height="52"></a>
       <div class="header-contact">
-        <a href="tel:+61343094009">03 4309 4009</a>
+        <a href="tel:+61353358920">03 5335 8920</a>
         <a href="sms:0488825361" class="sms-link">SMS Us</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ── SECTION 2: Hero ── -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
       <div class="hero-left">
-        <div class="hero-subheading">Trusted Servicing &amp; Repairs All in One Place</div>
-        <h1>The #1 Mechanic in Ballarat</h1>
-        <p class="hero-body">Looking for a mechanic in Ballarat you can trust? We're proud to be the go-to workshop for roadworthy inspections, logbook servicing, mechanical repairs and NHVR compliance. Local drivers, tradies and fleet managers choose us for our honest advice, fast turnaround and licensed work. We take the hassle out of vehicle maintenance, so you can get back on the road. Get everything done under one roof – with clear quotes and service that puts you first.</p>
+        <div class="hero-subheading">Your Go-To Experts for Top-Quality Vehicle Servicing and Repair</div>
+        <h1>Ballarat Automotive Service Centre</h1>
+        <p class="hero-body">Ballarat Automotive Service Centre has been providing vehicle repair services to the people of Ballarat and the surrounding area for over twenty years. We take great pride in our work and are committed to providing our customers the highest possible level of service each and every time they need us.</p>
         <div class="hero-ctas">
-          <a href="#form" class="btn">Get Free Estimate</a>
-          <a href="tel:+61343094009" class="btn btn-secondary">Call Now</a>
+          <a href="#form" class="btn">Book Now</a>
+          <a href="tel:+61353358920" class="btn btn-secondary">Call 03 5335 8920</a>
         </div>
       </div>
       <div class="hero-form-wrap">
-        <!-- TODO: replace with form handler — contact@ballaratservicecentre.com -->
-        <form class="hero-form" action="mailto:contact@ballaratservicecentre.com" method="post" enctype="text/plain">
-          <h3>Request to Book</h3>
-          <div class="form-group">
-            <label for="hero-name">Name</label>
-            <input type="text" id="hero-name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="hero-email">Email Address</label>
-            <input type="email" id="hero-email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label for="hero-phone">Phone Number</label>
-            <input type="tel" id="hero-phone" name="phone" placeholder="Your phone number" required>
-          </div>
-          <div class="form-group">
-            <label for="hero-service">Service Needed</label>
-            <select id="hero-service" name="service" required>
+        <!-- TODO: replace action with form handler — contact@ballaratservicecentre.com -->
+        <form id="form-top" class="hero-form" action="mailto:contact@ballaratservicecentre.com" method="post" enctype="text/plain">
+          <h3>Book Now</h3>
+          <div class="form-group"><label for="ht-name">Name</label><input type="text" id="ht-name" name="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label for="ht-email">Email Address</label><input type="email" id="ht-email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label for="ht-phone">Phone Number</label><input type="tel" id="ht-phone" name="phone" placeholder="Your phone number" required></div>
+          <div class="form-group"><label for="ht-svc">Service Needed</label>
+            <select id="ht-svc" name="service" required>
               <option value="" disabled selected>Select a service</option>
-              <option>Service</option>
-              <option>Vehicle Repair</option>
+              <option>Book a Service</option>
+              <option>Book a Repair</option>
+              <option>Book an Inspection</option>
             </select>
           </div>
           <div class="form-group-row">
-            <div class="form-group">
-              <label for="hero-make">Make</label>
-              <input type="text" id="hero-make" name="make" placeholder="e.g. Toyota">
-            </div>
-            <div class="form-group">
-              <label for="hero-model">Model + Year</label>
-              <input type="text" id="hero-model" name="model_year" placeholder="e.g. Hilux 2019">
-            </div>
+            <div class="form-group"><label for="ht-make">Make</label><input type="text" id="ht-make" name="make" placeholder="e.g. Toyota"></div>
+            <div class="form-group"><label for="ht-mdl">Model + Year</label><input type="text" id="ht-mdl" name="model_year" placeholder="e.g. Corolla 2020"></div>
           </div>
-          <div class="form-group">
-            <label for="hero-message">How can we help?</label>
-            <textarea id="hero-message" name="message" placeholder="Tell us what you need..."></textarea>
-          </div>
-          <button type="submit" class="btn form-submit">Request to Book</button>
+          <div class="form-group"><label for="ht-msg">How can we help?</label><textarea id="ht-msg" name="message" placeholder="Tell us what you need..."></textarea></div>
+          <button type="submit" class="btn form-submit">Book Now</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 3: Accreditation logos ── -->
 <section class="accreditation">
   <div class="container">
-    <div class="accreditation-logos">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/vacc-new.webp" alt="VACC Accredited">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/bea.webp" alt="BEA Member">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/aaaa.webp" alt="AAAA Member">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/hvia.webp" alt="HVIA Member">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/green-stamp.webp" alt="Green Stamp">
-      <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/employee.webp" alt="Employer of Choice">
+    <div class="accreditation-inner">
+      <div class="accreditation-combined">
+        <img src="https://ballaratservicecentre.com/resources/accreditation-logos.png" alt="VACC, AAAA, HVIA and industry accreditations">
+      </div>
+      <div class="accreditation-bea">
+        <img src="https://ballaratservicecentre.com/resources/awards/BEA24_Winner_Logo_Red.png" alt="Ballarat Business Excellence Awards 2024 Winner">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 4: About ── -->
 <section class="about">
   <div class="container">
-    <div class="about-inner">
-      <h2>The Mechanic Shop Ballarat Locals Recommend</h2>
-      <p>Your car or truck keeps your life moving, and when something goes wrong, you need someone who will treat it like their own. We don't upsell, delay or cut corners. We diagnose the problem correctly, explain your options clearly, and get to work with quality parts and skilled workmanship.</p>
-      <p>It's why so many Ballarat locals come back and send their mates too. From routine servicing to major repairs, we're here to keep you running smoothly.</p>
-    </div>
+    <h2>Proudly Servicing Ballarat For Over 20 Years</h2>
+    <p>Ballarat Automotive Service Centre has been providing vehicle repair services to the people of Ballarat and the surrounding area for over twenty years. We take great pride in our work and are committed to providing our customers the highest possible level of service each and every time they need us.</p>
   </div>
 </section>
 
-<!-- ── SECTION 5: Vehicle grid ── -->
-<section class="vehicles">
+<section class="services">
   <div class="container">
-    <h2>Repairs &amp; servicing for vehicles big and small</h2>
-    <div class="vehicle-grid">
-      <div class="vehicle-card">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/car.webp" alt="Cars" loading="lazy">
-        <div class="vehicle-card-body">
-          <h3>Cars</h3>
-          <p>Keep your car running safely and reliably. Whether you need a brake check, an engine fix, or a routine service, you can get back on the road with confidence.</p>
-        </div>
+    <h2>Expert Servicing and Repairs</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Light Vehicle Servicing Ballarat</h3>
+        <p>Routine maintenance to the manufacturer's specification is essential for prolonging the life of your vehicle. At Ballarat Automotive Service Centre, we specialise in servicing vehicles exactly as they should be, while giving you much-needed peace of mind. Our professional, friendly and highly experienced team pride ourselves on offering a friendly environment with full transparency in everything we do.</p>
+        <a href="/logbook-brand-based-car-servicing/" class="btn">Learn More</a>
       </div>
-      <div class="vehicle-card">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/trucks.webp" alt="Trucks" loading="lazy">
-        <div class="vehicle-card-body">
-          <h3>Trucks</h3>
-          <p>Your truck needs to stay roadworthy and dependable. From regular checks to major repairs, get the servicing you need to keep your truck performing its best.</p>
-        </div>
+      <div class="service-card">
+        <h3>Mechanical Vehicle Repairs Ballarat</h3>
+        <p>Our fully qualified mechanics and technicians are able to offer the full range of vehicle repair services to all types of vehicle in our fully equipped Ballarat garage. We specialise in petrol and diesel diagnostics and are a diesel service centre. The latest equipment means we can offer a full range of diesel vehicle diagnostics, reconditioning, supplying and testing of all makes of diesel fuel injection equipment.</p>
+        <a href="/mechanical-repair/" class="btn">Learn More</a>
       </div>
-      <div class="vehicle-card">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/fleet.webp" alt="Fleets" loading="lazy">
-        <div class="vehicle-card-body">
-          <h3>Fleets</h3>
-          <p>Keep your fleet in top shape and reduce downtime. Regular servicing and repairs ensure all your vehicles stay reliable, saving you time and money.</p>
-        </div>
-      </div>
-      <div class="vehicle-card">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/bus.webp" alt="Buses" loading="lazy">
-        <div class="vehicle-card-body">
-          <h3>Buses</h3>
-          <p>Safety is key when you're running a bus. With regular inspections and repairs, you can make sure your buses stay safe and roadworthy.</p>
-        </div>
-      </div>
-      <div class="vehicle-card">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/motor-homes.webp" alt="Motor Homes" loading="lazy">
-        <div class="vehicle-card-body">
-          <h3>Motor Homes</h3>
-          <p>Your motorhome should be ready for every adventure. Routine servicing and inspections keep it safe and reliable for the road ahead.</p>
-        </div>
-      </div>
-    </div>
-    <div class="vehicles-cta">
-      <a href="#form" class="btn">Get Free Estimate</a>
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 6: Stats bar ── -->
-<section class="stats-bar">
+<section class="reviews">
   <div class="container">
-    <div class="stats-inner">
-      <div class="stats-left">
-        <img class="stars" src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/stars.svg" alt="5 star rating">
-        <div class="stats-main">Over 1,000 cars serviced and repaired</div>
-        <div class="stats-sub">Trusted by 10,000+ drivers in Ballarat and surrounding areas</div>
+    <h2>What Our Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We have been using the Ballarat Roadworthy Centre for all of our vehicles for many years. James and the team are true professionals, who are honest, reliable and get the job done."</p>
+        <div class="review-author">N Walker</div>
       </div>
-      <div class="stats-right">
-        <img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/testimonials.png" alt="Google Reviews" loading="lazy">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"A very friendly and great team to deal with, highly recommend visiting."</p>
+        <div class="review-author">Mark Bowl</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 7: How It Works ── -->
+<section class="brands">
+  <div class="container">
+    <h2>We Service All Major Brands</h2>
+    <div class="brands-grid">
+      <img src="https://ballaratservicecentre.com/resources/brands/toyota.png" alt="Toyota">
+      <img src="https://ballaratservicecentre.com/resources/brands/vw.png" alt="Volkswagen">
+      <img src="https://ballaratservicecentre.com/resources/brands/mitsubishi.png" alt="Mitsubishi">
+      <img src="https://ballaratservicecentre.com/resources/brands/subaru.png" alt="Subaru">
+      <img src="https://ballaratservicecentre.com/resources/brands/mazda.png" alt="Mazda">
+      <img src="https://ballaratservicecentre.com/resources/brands/ford.png" alt="Ford">
+      <img src="https://ballaratservicecentre.com/resources/brands/nissan.png" alt="Nissan">
+      <img src="https://ballaratservicecentre.com/resources/brands/hyundai.png" alt="Hyundai">
+      <img src="https://ballaratservicecentre.com/resources/brands/fiat.png" alt="Fiat">
+      <img src="https://ballaratservicecentre.com/resources/brands/audi.png" alt="Audi">
+      <img src="https://ballaratservicecentre.com/resources/brands/renault.png" alt="Renault">
+      <img src="https://ballaratservicecentre.com/resources/brands/jeep.png" alt="Jeep">
+      <img src="https://ballaratservicecentre.com/resources/brands/mercedes.png" alt="Mercedes-Benz">
+      <img src="https://ballaratservicecentre.com/resources/brands/honda.png" alt="Honda">
+      <img src="https://ballaratservicecentre.com/resources/brands/bmw.png" alt="BMW">
+    </div>
+    <p class="brands-more">And many, many more.</p>
+  </div>
+</section>
+
 <section class="how-it-works">
   <div class="container">
     <h2>How It Works</h2>
     <div class="steps-grid">
       <div class="step">
         <div class="step-number">01</div>
-        <h3>Choose Your Service</h3>
-        <p>Please tell us what you need, whether it's a roadworthy certificate, logbook service, mechanical repair or inspection. We will guide you to the right solution every time.</p>
+        <h3>Book a Service, Repair or Inspection</h3>
+        <p>Use the booking form on this page or call us on <a href="tel:+61353358920">03 5335 8920</a>. We'll confirm a time that suits you.</p>
       </div>
       <div class="step">
         <div class="step-number">02</div>
-        <h3>Drop Off or Wait Onsite</h3>
-        <p>We will confirm your booking and get started without delay. You can relax onsite or head off.</p>
+        <h3>Drop Off Your Vehicle</h3>
+        <p>Our knowledgeable team will examine your vehicle and provide a detailed diagnostic report with a transparent repair estimate before any work begins.</p>
       </div>
       <div class="step">
         <div class="step-number">03</div>
         <h3>Pick Up and Drive Away Confident</h3>
-        <p>Your vehicle is repaired or certified, with everything explained in plain English. No jargon, just clear updates.</p>
+        <p>Your vehicle is repaired or serviced to the highest standards, with everything explained clearly.</p>
       </div>
     </div>
-    <div class="how-it-works-cta">
-      <a href="#form" class="btn">Book Now or Get a Quick Quote</a>
-    </div>
+    <div class="how-it-works-cta"><a href="#form" class="btn">Book Now</a></div>
   </div>
 </section>
 
-<!-- ── SECTION 8: Map + hours ── -->
 <section class="location">
   <div class="container">
-    <h2>Ballarat mechanics open from Monday to Friday, 07:30 AM to 05:30 PM</h2>
-    <iframe
-      src="https://maps.google.com/maps?q=Ballarat%20Roadworthy%20Centre%2C%2035%20Martin%20Drive%2C%20Delacombe%20VIC%203356&t=m&z=10&output=embed&iwloc=near"
-      title="Ballarat Automotive Service Centre location map"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+    <h2>Ballarat Automotive Service Centre — 35 Martin Drive, Delacombe VIC 3356</h2>
+    <p class="location-hours">Monday to Friday, 07:30 AM to 05:30 PM</p>
+    <iframe src="https://maps.google.com/maps?q=35%20Martin%20Drive%2C%20Delacombe%20VIC%203356&t=m&z=16&output=embed&iwloc=near" title="Ballarat Automotive Service Centre location map" allowfullscreen loading="lazy"></iframe>
   </div>
 </section>
 
-<!-- Section 9 (Gallery) — OMITTED for BASC -->
-
-<!-- ── SECTION 10: Second form + CTA ── -->
 <section class="cta-form" id="form">
   <div class="container">
     <div class="cta-form-inner">
       <div class="cta-form-left">
-        <h2>Book Ballarat's #1 Mechanic Shop Today</h2>
-        <p>Whether you are getting ready to sell, keeping your family car in top shape, or running a small fleet, we are here to help. Our team is fast, honest, and focused on getting your vehicle sorted without stress.</p>
+        <h2>Book Your Vehicle Service or Repair Today</h2>
+        <p>We prioritise your convenience and trust. Flexible scheduling, quick efficient service, and a team that puts your vehicle's safety first.</p>
         <ul class="trust-list">
           <li>Trusted Local Technicians</li>
-          <li>VIC Licensed Testing</li>
-          <li>No Surprise Costs</li>
+          <li>Transparent Pricing</li>
+          <li>All Makes and Models</li>
+          <li>Over 20 Years Experience</li>
         </ul>
       </div>
       <div class="cta-form-right">
-        <!-- TODO: replace with form handler — contact@ballaratservicecentre.com -->
+        <!-- TODO: replace action with form handler — contact@ballaratservicecentre.com -->
         <form class="hero-form" action="mailto:contact@ballaratservicecentre.com" method="post" enctype="text/plain">
-          <h3>Request to Book</h3>
-          <div class="form-group">
-            <label for="form-name">Name</label>
-            <input type="text" id="form-name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="form-email">Email Address</label>
-            <input type="email" id="form-email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label for="form-phone">Phone Number</label>
-            <input type="tel" id="form-phone" name="phone" placeholder="Your phone number" required>
-          </div>
-          <div class="form-group">
-            <label for="form-service">Service Needed</label>
-            <select id="form-service" name="service" required>
+          <h3>Book Now</h3>
+          <div class="form-group"><label for="f-name">Name</label><input type="text" id="f-name" name="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label for="f-email">Email Address</label><input type="email" id="f-email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" name="phone" placeholder="Your phone number" required></div>
+          <div class="form-group"><label for="f-svc">Service Needed</label>
+            <select id="f-svc" name="service" required>
               <option value="" disabled selected>Select a service</option>
-              <option>Service</option>
-              <option>Vehicle Repair</option>
+              <option>Book a Service</option>
+              <option>Book a Repair</option>
+              <option>Book an Inspection</option>
             </select>
           </div>
           <div class="form-group-row">
-            <div class="form-group">
-              <label for="form-make">Make</label>
-              <input type="text" id="form-make" name="make" placeholder="e.g. Toyota">
-            </div>
-            <div class="form-group">
-              <label for="form-model">Model + Year</label>
-              <input type="text" id="form-model" name="model_year" placeholder="e.g. Hilux 2019">
-            </div>
+            <div class="form-group"><label for="f-make">Make</label><input type="text" id="f-make" name="make" placeholder="e.g. Toyota"></div>
+            <div class="form-group"><label for="f-mdl">Model + Year</label><input type="text" id="f-mdl" name="model_year" placeholder="e.g. Corolla 2020"></div>
           </div>
-          <div class="form-group">
-            <label for="form-message">How can we help?</label>
-            <textarea id="form-message" name="message" placeholder="Tell us what you need..."></textarea>
-          </div>
-          <button type="submit" class="btn form-submit">Request to Book</button>
+          <div class="form-group"><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" placeholder="Tell us what you need..."></textarea></div>
+          <button type="submit" class="btn form-submit">Book Now</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 11 (Brand logos) — OMITTED for BASC -->
-
-<!-- ── SECTION 12: FAQs ── -->
 <section class="faqs">
   <div class="container">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">What vehicles do you work on?</div>
-        <div class="faq-a">We service and inspect most makes and models, including petrol, diesel, utes, trailers, and light trucks.</div>
+        <div class="faq-q">How often do I need to service my car?</div>
+        <div class="faq-a">We recommend servicing every 6 months or 10,000 km, whichever comes first. For vehicles under warranty, follow the manufacturer's logbook schedule.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How long does a service or inspection take?</div>
-        <div class="faq-a">Most standard services are completed same day. We'll let you know upfront if anything extra is needed.</div>
+        <div class="faq-q">What's included in a standard service?</div>
+        <div class="faq-a">Our BASC Standard Service includes oil and filter change, fluid level checks, tyre pressure adjustment, and a comprehensive safety inspection.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Do you offer fleet servicing?</div>
-        <div class="faq-a">Yes. We manage servicing and inspection schedules for local businesses and trades.</div>
+        <div class="faq-q">Will you service my car without voiding my warranty?</div>
+        <div class="faq-a">Yes. We follow the manufacturer's logbook schedule using recommended parts, keeping your warranty fully intact under Australian Consumer Law.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Do I need to book, or can I walk in?</div>
-        <div class="faq-a">Bookings are recommended to minimise wait times, but we'll always try to help if you're stuck.</div>
+        <div class="faq-q">Do I need to book in advance?</div>
+        <div class="faq-a">Bookings are recommended, but feel free to call and we'll do our best to fit you in.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SECTION 13: Footer ── -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#">
-          <img src="https://service.ballaratservicecentre.com/wp-content/uploads/2025/07/basc-logo-1.svg" alt="Ballarat Automotive Service Centre" width="160" height="48">
-        </a>
-        <p>At Ballarat Automotive Service Centre, whether you're driving a car, truck, bus, or motorhome, you can trust that your vehicle will be road-ready. From inspections to servicing and repairs, your vehicle gets the attention it needs to keep you safe on the road.</p>
+        <a href="/"><img src="https://ballaratservicecentre.com/resources/logo.svg" alt="Ballarat Automotive Service Centre" width="160" height="48"></a>
+        <p>We are a proud local Ballarat business employing locals and supporting other Ballarat businesses and the community.</p>
         <div class="footer-socials">
           <a href="https://www.facebook.com/ballaratrwc/" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/ballaratrwc/" target="_blank" rel="noopener">Instagram</a>
@@ -789,16 +383,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="/honda-service-near-me/">Honda Service</a></li>
-          <li><a href="/toyota-servicing/">Toyota Service</a></li>
           <li><a href="/logbook-brand-based-car-servicing/">Logbook Servicing</a></li>
           <li><a href="/mechanical-repair/">Mechanical Repairs</a></li>
-          <li><a href="/car-repair-ballarat/">Car Repairs</a></li>
-          <li><a href="/4x4-repair/">4x4 Repairs</a></li>
-          <li><a href="/aircon-heater/">Air Conditioning</a></li>
+          <li><a href="/car-repair-ballarat/">Brake Repairs</a></li>
+          <li><a href="/4x4-repair/">Tyre Services</a></li>
+          <li><a href="/aircon-heater/">Engine Diagnostics</a></li>
+          <li><a href="/full-car-service-near-me/">Suspension &amp; Steering</a></li>
+          <li><a href="/honda-service-near-me/">Honda Service</a></li>
+          <li><a href="/toyota-servicing/">Toyota Service</a></li>
           <li><a href="/fleet-servicing-in-ballarat/">Fleet Servicing</a></li>
           <li><a href="/mechanic-shop-near-me/">Mechanic Near Me</a></li>
-          <li><a href="/full-car-service-near-me/">Full Car Service</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms-of-service/">Terms of Service</a></li>
         </ul>
@@ -806,17 +400,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+61343094009">03 4309 4009</a></li>
+          <li><a href="tel:+61353358920">03 5335 8920</a></li>
           <li><a href="sms:0488825361">0488 825 361</a></li>
-          <li><a href="#form">Request to Book</a></li>
+          <li>35 Martin Drive, Delacombe VIC 3356</li>
+          <li><a href="#form">Book Now</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      2026 &copy; Ballarat Automotive Service Centre | 35 Martin Drive, Delacombe VIC 3356
-    </div>
+    <div class="footer-bottom">2026 &copy; Ballarat Automotive Service Centre | 35 Martin Drive, Delacombe VIC 3356</div>
   </div>
 </footer>
-
 </body>
 </html>
