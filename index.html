@@ -93,7 +93,9 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
 .footer-copyright{color:var(--brc-muted);font-size:13px;}
 @media(max-width:768px){.form-row-top{grid-template-columns:1fr;}}
 @media(max-width:900px){h1{font-size:39px;}h2{font-size:28px;}.hero-inner{grid-template-columns:1fr;}.services-grid{grid-template-columns:repeat(2,1fr);}.reviews-grid{grid-template-columns:1fr;}.stats-inner{flex-direction:column;text-align:center;}.steps-row{grid-template-columns:1fr;}.step-connector{display:none;}.about-inner{grid-template-columns:1fr;}.map-inner{grid-template-columns:1fr;}.footer-inner{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;text-align:center;}}
-@media(max-width:600px){.services-grid{grid-template-columns:1fr;}.header-phone{display:none;}.hero{padding:48px 20px;}.reviews-grid{overflow-x:auto;display:flex;flex-wrap:nowrap;gap:16px;}.review-card{min-width:280px;}}</style>
+@media(max-width:600px){.services-grid{grid-template-columns:1fr;}.header-phone{display:none;}.hero{padding:48px 20px;}.reviews-grid{overflow-x:auto;display:flex;flex-wrap:nowrap;gap:16px;}.review-card{min-width:280px;}}
+.form-success{background:#e8f5e9;border:1px solid #4caf50;color:#2e7d32;padding:16px 20px;border-radius:6px;font-size:16px;text-align:center;margin:0}
+.form-error{color:#c0392b;font-size:14px;margin-top:8px}</style>
 <script>var $wc_load=function(a){return JSON.parse(JSON.stringify(a))},$wc_leads=$wc_leads||{doc:{url:$wc_load(document.URL),ref:$wc_load(document.referrer),search:$wc_load(location.search),hash:$wc_load(location.hash)}};</script>
 <script src="//s.ksrndkehqnwntyxlhgto.com/136716.js"></script>
 </head>
@@ -131,6 +133,7 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
         <h3>Get a Free Quote</h3>
         <!-- TODO: replace action with form handler &mdash; contact@ballaratservicecentre.com -->
         <form action="#" method="POST">
+          <input type="hidden" name="site" value="basc">
           <div class="form-group"><label for="h-name">Your Name</label><input type="text" id="h-name" name="name" placeholder="John Smith" required></div>
           <div class="form-group"><label for="h-phone">Phone Number</label><input type="tel" id="h-phone" name="phone" placeholder="0400 000 000" required></div>
           <div class="form-group"><label for="h-service">Service Required</label>
@@ -257,6 +260,7 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
     </ul>
     <!-- TODO: replace action with form handler &mdash; contact@ballaratservicecentre.com -->
     <form action="#" method="POST">
+      <input type="hidden" name="site" value="basc">
       <div class="form-row-top">
         <div class="form-group"><label for="f-name">Your Name</label><input type="text" id="f-name" name="name" placeholder="John Smith" required></div>
         <div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" name="phone" placeholder="0400 000 000" required></div>
@@ -328,5 +332,37 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
   </div>
 </footer>
 <script>document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',()=>{const answer=btn.nextElementSibling;const isOpen=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!isOpen);answer.style.maxHeight=isOpen?'0':answer.scrollHeight+'px';});});</script>
+<script>
+(function(){
+  // TODO: replace WORKER_URL after running: wrangler deploy
+  var WORKER='https://ballarat-form-handler.YOUR_ACCOUNT.workers.dev/submit';
+  document.querySelectorAll('form').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=form.querySelector('[type="submit"]');
+      var orig=btn.textContent;
+      btn.disabled=true;
+      btn.textContent='Sending…';
+      fetch(WORKER,{
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(j.success){
+          form.innerHTML='<p class="form-success">Thanks! We\'ll be in touch shortly.</p>';
+        } else { throw new Error(j.error||'error'); }
+      })
+      .catch(function(){
+        btn.disabled=false;btn.textContent=orig;
+        var err=form.querySelector('.form-error');
+        if(!err){err=document.createElement('p');err.className='form-error';form.appendChild(err);}
+        err.textContent='Something went wrong. Please call us directly.';
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
