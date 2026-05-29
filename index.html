@@ -155,8 +155,8 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
   <div class="services-inner">
     <div class="section-header"><h2>Expert Light Vehicle Servicing &amp; Repairs</h2></div>
     <div class="services-grid">
-      <div class="service-card"><img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/car.webp" alt="Car servicing Ballarat" loading="lazy"><div class="service-card-body"><h3>Cars</h3><p>Logbook and general servicing for all makes and models.</p><a href="#form">Book a service &rarr;</a></div></div>
-      <div class="service-card"><img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/fleet.webp" alt="4WD servicing Ballarat" loading="lazy"><div class="service-card-body"><h3>4WDs</h3><p>Expert 4x4 servicing, diesel diagnostics and suspension work.</p><a href="#form">Book a service &rarr;</a></div></div>
+      <div class="service-card"><img src="/images/car.webp" alt="Car servicing Ballarat" loading="lazy"><div class="service-card-body"><h3>Cars</h3><p>Logbook and general servicing for all makes and models.</p><a href="#form">Book a service &rarr;</a></div></div>
+      <div class="service-card"><img src="/images/fleet.webp" alt="4WD servicing Ballarat" loading="lazy"><div class="service-card-body"><h3>4WDs</h3><p>Expert 4x4 servicing, diesel diagnostics and suspension work.</p><a href="#form">Book a service &rarr;</a></div></div>
       <div class="service-card"><img src="https://placehold.co/400x180/2a2a2a/ffffff?text=Vans+%26+Utes" alt="Van and ute servicing Ballarat" loading="lazy"><div class="service-card-body"><h3>Vans &amp; Utes</h3><p>Fleet and commercial light vehicle servicing and repairs.</p><a href="#form">Book a service &rarr;</a></div></div>
     </div>
     <div style="text-align:center;"><a href="#form" class="btn">Book Now</a></div>
@@ -208,7 +208,7 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
       <h2>Proudly Servicing Ballarat For Over 20 Years</h2>
       <p>Ballarat Automotive Service Centre has been providing vehicle repair services to the people of Ballarat and the surrounding area for over twenty years. We take great pride in our work and are committed to providing our customers the highest possible level of service each and every time they need us.</p>
     </div>
-    <div><img src="https://service.ballaratroadworthy.com/wp-content/uploads/2024/10/testimonials.png" alt="BASC workshop" loading="lazy" style="border-radius:8px;"></div>
+    <div><img src="/images/testimonials.png" alt="BASC workshop" loading="lazy" style="border-radius:8px;"></div>
   </div>
 </section>
 
@@ -332,10 +332,15 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
   </div>
 </footer>
 <script>document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',()=>{const answer=btn.nextElementSibling;const isOpen=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!isOpen);answer.style.maxHeight=isOpen?'0':answer.scrollHeight+'px';});});</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
-  // TODO: replace WORKER_URL after running: wrangler deploy
-  var WORKER='https://ballarat-form-handler.YOUR_ACCOUNT.workers.dev/submit';
+  var SUPABASE_URL      = 'https://prqbvbhuwfpdkkrkqizj.supabase.co';
+  var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBycWJ2Ymh1d2ZwZGtrcmtxaXpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5OTA1MzQsImV4cCI6MjA5MjU2NjUzNH0.Io5IHsyp23yThoyZD7Ccs4UygTtwx_0rIRTlnS3pYZQ';
+
+  function getParam(k){ return new URLSearchParams(window.location.search).get(k)||null; }
+  function fval(form,id){ var el=form.querySelector('#'+id); return el?(el.value.trim()||null):null; }
+
   document.querySelectorAll('form').forEach(function(form){
     form.addEventListener('submit',function(e){
       e.preventDefault();
@@ -343,23 +348,38 @@ footer{background:var(--brc-dark);padding:64px 24px 0;}
       var orig=btn.textContent;
       btn.disabled=true;
       btn.textContent='Sending…';
-      fetch(WORKER,{
-        method:'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-        body:new URLSearchParams(new FormData(form)).toString()
-      })
-      .then(function(r){return r.json();})
-      .then(function(j){
-        if(j.success){
+
+      var pfx=form.querySelector('#h-name')?'h-':'f-';
+      var payload={
+        customer_name:  fval(form,pfx+'name')||'',
+        customer_phone: fval(form,pfx+'phone')||'',
+        customer_email: fval(form,pfx+'email'),
+        service_type:   fval(form,pfx+'service'),
+        notes:          fval(form,pfx+'message'),
+        utm_source:     getParam('utm_source'),
+        utm_medium:     getParam('utm_medium'),
+        utm_campaign:   getParam('utm_campaign'),
+        utm_content:    getParam('utm_content'),
+        utm_term:       getParam('utm_term'),
+        gclid:          getParam('gclid'),
+        landing_page:   window.location.pathname
+      };
+
+      supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)
+        .from('basc_bookings').insert([payload])
+        .then(function(result){
+          if(result.error) throw result.error;
+          if(window.dataLayer) dataLayer.push({event:'form_submission',form_name:'booking_form',conversion_type:'booking_enquiry'});
+          if(typeof gtag==='function') gtag('event','generate_lead',{service_type:payload.service_type});
           form.innerHTML='<p class="form-success">Thanks! We\'ll be in touch shortly.</p>';
-        } else { throw new Error(j.error||'error'); }
-      })
-      .catch(function(){
-        btn.disabled=false;btn.textContent=orig;
-        var err=form.querySelector('.form-error');
-        if(!err){err=document.createElement('p');err.className='form-error';form.appendChild(err);}
-        err.textContent='Something went wrong. Please call us directly.';
-      });
+        })
+        .catch(function(err){
+          console.error('Booking error:',err);
+          btn.disabled=false;btn.textContent=orig;
+          var errEl=form.querySelector('.form-error');
+          if(!errEl){errEl=document.createElement('p');errEl.className='form-error';form.appendChild(errEl);}
+          errEl.textContent='Something went wrong. Please call us directly.';
+        });
     });
   });
 })();
