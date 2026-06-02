@@ -1,0 +1,14 @@
+# Redirects for orphaned WordPress URLs not present in the static site
+
+# WordPress used /privacy-policy-2/ but static site has /privacy-policy/
+/privacy-policy-2/ /privacy-policy/ 301
+
+# Blog posts — no equivalent static pages, redirect to home
+/hello-world/ / 301
+/hello-world-2/ / 301
+
+# Category archive — no equivalent static page, redirect to home
+/category/uncategorized/ / 301
+
+# Catch-all: any other path not matched above falls back to home
+/* / 301
