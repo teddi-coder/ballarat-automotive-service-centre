@@ -312,7 +312,7 @@
           <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;">Book My Service</button>
           <p class="form-reassure">We'll call you back within 2 hours</p>
         </form>
-        <div id="booking-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
+        <div id="contact-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
       </div>
     </div>
   </div>
@@ -541,7 +541,7 @@
         <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;">Book My Service</button>
         <p class="form-reassure">We'll call you back within 2 hours during business hours</p>
       </form>
-      <div id="booking-success-2" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
+      <div id="contact-success-2" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
     </div>
   </div>
 </section>
@@ -594,7 +594,7 @@
 (function () {
   'use strict';
   var form = document.getElementById('contact-form');
-  var success = document.getElementById('booking-success');
+  var success = document.getElementById('contact-success');
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -607,7 +607,7 @@
 (function () {
   'use strict';
   var form = document.getElementById('contact-form-2');
-  var success = document.getElementById('booking-success-2');
+  var success = document.getElementById('contact-success-2');
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();

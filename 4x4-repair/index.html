@@ -161,7 +161,7 @@
         <div class="field"><label for="bf-message">Notes</label><textarea id="bf-message" name="message" rows="2" placeholder="Tell us about your vehicle&hellip;"></textarea></div>
         <button type="submit" class="btn btn-call">Book Now →</button>
       </form>
-      <div id="booking-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
+      <div id="contact-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
       <p class="form-reassure">No obligation. We'll only use your details to reply.</p>
     </div>
   </div>
@@ -258,7 +258,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function () {
   'use strict';
   var form = document.getElementById('contact-form');
-  var success = document.getElementById('booking-success');
+  var success = document.getElementById('contact-success');
   if (!form) return;
 
   form.addEventListener('submit', function (e) {
