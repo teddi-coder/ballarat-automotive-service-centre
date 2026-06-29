@@ -72,17 +72,18 @@
       <p>We'll get back to you fast.</p>
       <form id="booking-form" novalidate>
       <div class="form-row-3">
-        <div class="field"><label>Name</label><input type="text" placeholder="Jane Smith"></div>
-        <div class="field"><label>Phone</label><input type="tel" placeholder="0400 000 000"></div>
-        <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="bf-name">Name</label><input id="bf-name" name="name" type="text" placeholder="Jane Smith"></div>
+        <div class="field"><label for="bf-phone">Phone</label><input id="bf-phone" name="phone" type="tel" placeholder="0400 000 000"></div>
+        <div class="field"><label for="bf-email">Email</label><input id="bf-email" name="email" type="email" placeholder="you@email.com"></div>
       </div>
-      <div class="field"><label>Service required</label>
-        <select><option>Select a service…</option><option>Logbook service</option><option>General service</option><option>Brakes</option><option>4WD service</option><option>Roadworthy / RWC</option><option>Other repair</option></select>
+      <div class="field"><label for="bf-service">Service required</label>
+        <select id="bf-service" name="service"><option>Select a service…</option><option>Logbook service</option><option>General service</option><option>Brakes</option><option>4WD service</option><option>Roadworthy / RWC</option><option>Other repair</option></select>
       </div>
-      <div class="field"><label>Notes</label><textarea rows="2" placeholder="Tell us about your vehicle…"></textarea></div>
+      <div class="field"><label for="bf-notes">Notes</label><textarea id="bf-notes" name="notes" rows="2" placeholder="Tell us about your vehicle…"></textarea></div>
       <button type="submit" class="btn btn-call">Send my request →</button>
       <p class="form-reassure">No obligation. We'll only use your details to reply.</p>
       </form>
+      <div id="booking-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
     </div>
   </div>
 </section>
@@ -315,25 +316,21 @@ const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Booking form submit
-(function() {
+(function () {
   'use strict';
   var form = document.getElementById('booking-form');
+  var success = document.getElementById('booking-success');
   if (!form) return;
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // WhatConverts — fire immediately on submit, before anything else
-    try {
-      if (typeof window.wc_capture_form === 'function') {
-        window.wc_capture_form(form);
-      }
-    } catch (wcErr) {
-      console.warn('WhatConverts capture failed:', wcErr);
-    }
-
-    // Show success message
-    form.innerHTML = '<p style="padding:1rem 0;font-weight:600;">Thanks! We\'ll be in touch shortly.</p>';
+    // Do NOT clear or remove the inputs here. WhatConverts' auto form tracker
+    // reads the field values off the live DOM after this submit event fires;
+    // destroying the form on submit is what caused every field to arrive blank.
+    // Hide the form instead so the values stay readable in the DOM.
+    form.style.display = 'none';
+    if (success) success.hidden = false;
   });
 }());
 </script>

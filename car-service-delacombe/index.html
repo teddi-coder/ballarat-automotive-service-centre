@@ -309,9 +309,10 @@
             <label for="message">Message <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
             <textarea id="message" name="message" rows="3" placeholder="Any details about your vehicle or service..."></textarea>
           </div>
-          <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;" onclick="typeof wc_capture_form !== 'undefined' && wc_capture_form(this.form)">Book My Service</button>
+          <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;">Book My Service</button>
           <p class="form-reassure">We'll call you back within 2 hours</p>
         </form>
+        <div id="contact-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
       </div>
     </div>
   </div>
@@ -537,9 +538,10 @@
           <label for="message2">Message <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
           <textarea id="message2" name="message" rows="3" placeholder="Any details about your vehicle or service..."></textarea>
         </div>
-        <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;" onclick="typeof wc_capture_form !== 'undefined' && wc_capture_form(this.form)">Book My Service</button>
+        <button type="submit" class="btn btn-call" style="width:100%;justify-content:center;">Book My Service</button>
         <p class="form-reassure">We'll call you back within 2 hours during business hours</p>
       </form>
+      <div id="contact-success-2" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
     </div>
   </div>
 </section>
@@ -587,6 +589,32 @@
   }, { threshold: 0.1 });
   obs.observe(form);
 })();
+
+// Booking form submit — form 1
+(function () {
+  'use strict';
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('contact-success');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    if (success) success.hidden = false;
+  });
+}());
+
+// Booking form submit — form 2
+(function () {
+  'use strict';
+  var form = document.getElementById('contact-form-2');
+  var success = document.getElementById('contact-success-2');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    if (success) success.hidden = false;
+  });
+}());
 </script>
 
 </body>

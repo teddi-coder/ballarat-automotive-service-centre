@@ -143,23 +143,24 @@
     <div class="quote-card reveal">
       <h3>Get a Free Quote</h3>
       <p>We'll get back to you fast.</p>
-      <form id="contact-form" action="#" method="POST">
+      <form id="contact-form" novalidate>
         <div class="form-row-3">
-          <div class="field"><label>Name</label><input type="text" name="name" placeholder="John Smith" required></div>
-          <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="0400 000 000" required></div>
-          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com"></div>
+          <div class="field"><label for="bf-name">Name</label><input id="bf-name" type="text" name="name" placeholder="John Smith" required></div>
+          <div class="field"><label for="bf-phone">Phone</label><input id="bf-phone" type="tel" name="phone" placeholder="0400 000 000" required></div>
+          <div class="field"><label for="bf-email">Email</label><input id="bf-email" type="email" name="email" placeholder="you@email.com"></div>
         </div>
-        <div class="field"><label>Service required</label>
-          <select name="service" required>
+        <div class="field"><label for="bf-service">Service required</label>
+          <select id="bf-service" name="service" required>
             <option value="" disabled selected>Select a service&hellip;</option>
             <option>Book a Service</option>
             <option>Book a Repair</option>
             <option>Book an Inspection</option>
           </select>
         </div>
-        <div class="field"><label>Notes</label><textarea name="message" rows="2" placeholder="Tell us about your fleet&hellip;"></textarea></div>
+        <div class="field"><label for="bf-message">Notes</label><textarea id="bf-message" name="message" rows="2" placeholder="Tell us about your fleet&hellip;"></textarea></div>
         <button type="submit" class="btn btn-call">Book Now →</button>
       </form>
+      <div id="contact-success" hidden><p style="padding:1rem 0;font-weight:600;">Thanks! We'll be in touch shortly.</p></div>
       <p class="form-reassure">No obligation. We'll only use your details to reply.</p>
     </div>
   </div>
@@ -251,6 +252,23 @@ if(track){
 }
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Booking form submit
+(function () {
+  'use strict';
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('contact-success');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Do NOT destroy the inputs. WhatConverts reads field values off the DOM
+    // after the submit event fires — hiding the form keeps them readable.
+    form.style.display = 'none';
+    if (success) success.hidden = false;
+  });
+}());
 </script>
 </body>
 </html>
