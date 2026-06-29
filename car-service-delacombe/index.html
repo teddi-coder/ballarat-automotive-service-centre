@@ -598,8 +598,10 @@
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    form.style.display = 'none';
-    if (success) success.hidden = false;
+    setTimeout(function () {
+      form.style.display = 'none';
+      if (success) success.hidden = false;
+    }, 400);
   });
 }());
 
@@ -611,8 +613,10 @@
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    form.style.display = 'none';
-    if (success) success.hidden = false;
+    setTimeout(function () {
+      form.style.display = 'none';
+      if (success) success.hidden = false;
+    }, 400);
   });
 }());
 </script>
